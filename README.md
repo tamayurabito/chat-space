@@ -31,7 +31,7 @@
 ---
 |column|type|potions|
 |---|---|---|
-|body|text|null:false|
+|body|text||
 |image|string||
 |group_id|integer|null:false, foreigh_key:true|
 |user_id|integer|unll:false, foreigh_key:ture|
