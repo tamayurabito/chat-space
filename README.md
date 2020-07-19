@@ -20,7 +20,6 @@
 |column|type|options|
 |---|---|---|
 |group_name|string|null:false|
-|user_id|integer|null:false|
 
 ### Association
 - has_many :messages
