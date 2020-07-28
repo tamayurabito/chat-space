@@ -1,0 +1,37 @@
+.main_chat
+  .group
+    .group__group_data.group_data
+      .group_data__group_name
+        test
+      .group_data__group_member
+        Member : masa
+    .group__edit_btn.edit_btn
+      =link_to "#", class:"edit_btn__btn" do
+        Edit
+  .messages
+    .messages__lists.lists
+      .lists__message_names.names
+        .names__name
+          masa
+        .names__timestamp
+          timestamp
+      .lists__message
+        おはよう
+
+    .messages__lists.lists
+      .lists__message_names.names
+        .names__name
+          masa2
+        .names__timestamp
+          timestamp2
+      .lists__message
+        おはよう2
+
+  .form
+    %form.form__form_box.form_box
+      .form_box__inputs.inputs
+        %input.inputs__message{type:"text", placeholder:"type a message"}
+        %label.inputs__image
+          =icon("far","image")
+          %input.file{type:"file"}
+      %input.submit_btn{type: "submit", value:"Send"} 
