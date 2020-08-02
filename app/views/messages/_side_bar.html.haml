@@ -4,18 +4,19 @@
       .names__name
         =current_user.name
       .names__icon
-        = link_to "####", class: "names__icon--left" do
+        = link_to new_group_path, class: "names__icon--left" do
           = icon('far', 'edit')
         = link_to edit_user_path(current_user), class: "names__icon--right" do
           = icon("fas", "cog")
   .group_lists
-    .group_lists__list.list
-      .list__group_name
-        techcamp
-      .list__new_message
-        まだメッセージがありません
-    .group_lists__list.list
-      .list__group_name
-        techcamp 2
-      .list__new_message
-        まだメッセージがありません 2
+    - current_user.groups.each do |group|
+      .group_lists__list.list
+        .list__group_name
+          = group.name
+        .list__new_message
+          メッセージがない
+    -# .group_lists__list.list
+    -#   .list__group_name
+    -#     techcamp 2
+    -#   .list__new_message
+    -#     まだメッセージがありません 2
