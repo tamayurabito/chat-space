@@ -41,9 +41,12 @@
     background-color: $side_bar_grouplists_bakground_color;
     padding-top: 20px;
     .list{
-      color: $side_bar_font_color;
       font-weight: bold;
       position: relative;
+      &__link{
+        color: $side_bar_font_color;
+        text-decoration: none;
+      }
       &__group_name{
         font-size: 15px;
         padding: 0 20px;

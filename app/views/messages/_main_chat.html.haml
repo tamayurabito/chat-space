@@ -2,36 +2,22 @@
   .group
     .group__group_data.group_data
       .group_data__group_name
-        test
+        = @group.name
       .group_data__group_member
-        Member : masa
+        Member : 
+        - @group.users.each do |user|
+          = user.name
     .group__edit_btn.edit_btn
-      =link_to "#", class:"edit_btn__btn" do
+      =link_to edit_group_path(@group.id), class:"edit_btn__btn" do
         Edit
   .messages
-    .messages__lists.lists
-      .lists__message_names.names
-        .names__name
-          masa
-        .names__timestamp
-          timestamp
-      .lists__message
-        おはよう
-
-    .messages__lists.lists
-      .lists__message_names.names
-        .names__name
-          masa2
-        .names__timestamp
-          timestamp2
-      .lists__message
-        おはよう2
-
+    = render @messages
   .form
-    %form.form__form_box.form_box
-      .form_box__inputs.inputs
-        %input.inputs__message{type:"text", placeholder:"type a message"}
-        %label.inputs__image
-          =icon("far","image")
-          %input.file{type:"file"}
-      %input.submit_btn{type: "submit", value:"Send"} 
+    = form_for [@group, @message] do |f|
+      .form__form_box.form_box
+        .form_box__inputs.inputs
+          = f.text_field :body, class: 'inputs__message', placeholder: 'type a message'
+          = f.label :image, class: 'inputs__image' do
+            = icon('fas', 'image', class: 'icon')
+            = f.file_field :image, class: 'file'
+        = f.submit 'Send', class: 'submit_btn'
