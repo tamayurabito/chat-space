@@ -70,34 +70,39 @@
     background-color: $main_chat_bottom_background_color;
     display: flex;
     align-items: center;
-    .form_box{
-      height:50px;
-      width:100%;
-      margin:0 40px;
+    // form_forに元からあるclass名がnew_message
+    .new_message{
+      width: 100%;
       display: flex;
-      justify-content: space-between;
-      .inputs{
-        height: 50px;
-        width: calc(100% - 15px - 100px);
-        position: relative;
-        &__message{
+      .form_box{
+        height:50px;
+        width:100%;
+        margin:0 40px;
+        display: flex;
+        justify-content: space-between;
+        .inputs{
           height: 50px;
-          width: 100%;
-          padding-left: 10px;
-        }
-        &__image{
-          position: absolute; top:12.5px; right: 10px; 
-          font-size: 20px;
-          .file{
-            display: none;
+          width: calc(100% - 15px - 100px);
+          position: relative;
+          &__message{
+            height: 50px;
+            width: 100%;
+            padding-left: 10px;
+          }
+          &__image{
+            position: absolute; top:12.5px; right: 10px; 
+            font-size: 20px;
+            .file{
+              display: none;
+            }
           }
         }
-      }
-      .submit_btn{
-        height: 50px;
-        width: 100px;
-        background-color: $main_chat_btn_color;
-        color: $main_chat_bottom_submit_btn_font_color;
+        .submit_btn{
+          height: 50px;
+          width: 100px;
+          background-color: $main_chat_btn_color;
+          color: $main_chat_bottom_submit_btn_font_color;
+        }
       }
     }
   }
