@@ -11,12 +11,8 @@
   .group_lists
     - current_user.groups.each do |group|
       .group_lists__list.list
-        .list__group_name
-          = group.name
-        .list__new_message
-          メッセージがない
-    -# .group_lists__list.list
-    -#   .list__group_name
-    -#     techcamp 2
-    -#   .list__new_message
-    -#     まだメッセージがありません 2
+        = link_to group_messages_path(group), class: 'list__link' do
+          .list__group_name
+            = group.name
+          .list__new_message
+            = group.show_last_message
