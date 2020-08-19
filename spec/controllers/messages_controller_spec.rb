@@ -1,3 +1,41 @@
+require 'rails_helper'
+
+describe MessagesController do
+  let(:user) {create(:user)}
+  let(:group) {create(:group)}
+
+  describe 'GET #index' do
+    context 'ログインしている場合' do
+      before do
+        login user
+        get :index , params: {group_id: group.id}
+      end
+      it '@messageに期待した値が入っていること' do
+        expect(assigns(:message)).to be_a_new(Message)
+      end
+      it '@groupに期待した値が入っていること' do
+        expect(assigns(:group)).to eq group
+      end
+      # it '@messagesに期待した値が入っていること' do
+      #   messages = create_list(:message,3)
+      #   expect(assigns(:messages)).to match(messages)
+        
+      # end
+      it '該当するビューが描画されているか' do
+        expect(response).to render_template :index
+      end
+    end
+    context 'ログインしていない場合' do
+      before do
+        get :index, params:{group_id:group.id}
+      end
+      it 'ログイン画面にリダイレクトする事' do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+  end
+
+
   describe '#create' do
 
     let(:params) {{group_id: group.id, user_id: user.id, message: attributes_for(:message)}}
