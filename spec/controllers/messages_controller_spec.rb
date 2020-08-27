@@ -16,11 +16,6 @@ describe MessagesController do
       it '@groupに期待した値が入っていること' do
         expect(assigns(:group)).to eq group
       end
-      # it '@messagesに期待した値が入っていること' do
-      #   messages = create_list(:message,3)
-      #   expect(assigns(:messages)).to match(messages)
-        
-      # end
       it '該当するビューが描画されているか' do
         expect(response).to render_template :index
       end
@@ -58,7 +53,6 @@ describe MessagesController do
         let(:invalid_params) {{group_id: group.id, user_id: user.id, message: attributes_for(:message, body: nil, image: nil)}}
         subject {post :create, params: invalid_params}
         it 'メッセージの保存は行われなかったか' do
-          # expect{subject}.to change(Message, :count).by(0)
           expect{subject}.not_to change(Message, :count)
         end
         it '意図したビューが描画されているか' do
