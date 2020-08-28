@@ -38,6 +38,7 @@
     }
   }
   .messages{
+    overflow: scroll;
     height: calc(100vh - 100px - 90px);
     background-color: $main_chat_middle_background_color;
     padding: 35px 0 0 40px;
