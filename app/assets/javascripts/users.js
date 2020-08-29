@@ -7,3 +7,4 @@
       data: { keyword: input },
       dataType: "json"
     })
+      $("#user-search-result").empty();
