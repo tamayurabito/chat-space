@@ -41,3 +41,40 @@ $(function(){
     .fail(function() {
       alert("通信エラーです。ユーザーが表示できません。");
     });
+  });
+
+  function  addDeleteUser(name, id){
+    var html = `
+            <div class='chat-group-user'>
+              <input name='group[user_ids][]' type='hidden' value=${id}>
+              <p class='chat-group-user__name'>${name}</p>
+              <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+            </div>
+            `
+    $(".js-add-user").append(html)
+  }
+  
+  function addMember(id){
+    let html = `<input value="${userId}" name="group[user_ids][]" type="hidden" id="group_user_ids_${userId}" />`;
+    $(`#${userId}`).append(html);
+  }
+
+
+  $("#user-search-result").on("click",".chat-group-user__btn--add",function(){
+    // console.log("追加ボタンが押された")
+    var userName = $(this).data('user-name');
+    // console.log(userName)
+    var userId = $(this).data('user-id');
+    // console.log(userId)
+    var aaa = $(this).parent();
+    // console.log(aaa)
+    $(aaa).remove();
+    addDeleteUser(userName, userId);
+    addMember(userID);
+  });
+
+  $("#chat-group-users").on("click", ".js-remove-btn", function(){
+    var abc = $(this).parent();
+    $(abc).remove();
+  });
+});
