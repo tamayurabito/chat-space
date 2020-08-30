@@ -20,6 +20,7 @@ $(function(){
   function buildHTML(message){
     if (message.image){
       var html = `<div class="messages__lists lists">
+      var html = `<div class="messages__lists lists" data-message-id=${message.id}>
                     <div class="lists__message_names names">
                       <div class="names__name">
                         ${message.user_name}
@@ -37,6 +38,7 @@ $(function(){
                   </div>`
     }else{
       var html = ` <div class="messages__lists lists">
+      var html = ` <div class="messages__lists lists" data-message-id=${message.id}>
                     <div class="lists__message_names names">
                       <div class="names__name">
                         ${message.user_name}
